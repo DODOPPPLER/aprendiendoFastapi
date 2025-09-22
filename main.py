@@ -1,14 +1,21 @@
-from typing import Optional
-
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from routers import product,products,users,user,basic_users_auth,jwt_users_auth,users_db
 
 app = FastAPI()
+
+#routers
+app.include_router(products.router)
+app.include_router(product.router)
+
+app.include_router(users.router)
+app.include_router(user.router)
+app.include_router(users_db.router)
+
+app.include_router(basic_users_auth.router)
+app.include_router(jwt_users_auth.router)
 
 
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Optional[str] = None):
-    return {"item_id": item_id, "q": q}
