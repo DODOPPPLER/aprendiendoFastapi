@@ -6,10 +6,8 @@ app = FastAPI()
 
 #routers
 app.include_router(products.router)
-app.include_router(product.router)
 
 app.include_router(users.router)
-app.include_router(user.router)
 app.include_router(users_db.router)
 
 app.include_router(basic_users_auth.router)
