@@ -15,7 +15,6 @@ app.include_router(users_db.router)
 app.include_router(basic_users_auth.router)
 app.include_router(jwt_users_auth.router)
 
-
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"Hello": "World"}
